@@ -5,8 +5,8 @@
 ##################
 
 userName=changeMe                    # Needs to match with your Debian user name.
-bash_completion_install=true   # Install and configure bash-completion
-sudo_install=true              # Install and configure sudo for your Debian user name
+bash_completion_install=false   # Install and configure bash-completion for root user
+sudo_install=false              # Install and configure sudo for your Debian user name
 
 
                                         ##############
@@ -56,7 +56,7 @@ echo -e "$cyan \n Checking if $yellow$userName$cyan user exists\n "$colorOff
 if [ $(cat /etc/passwd | grep -c '^'$userName':') = 1 ]; then
     echo -e $green" User exists... Nice!"$colorOff
 else   
-    echo -e $red" ERROR: User does not exist... Exiting..."$colorOff
+    echo -e $red" ERROR: User does not exist... Please edit script.sh file and check the firsts parameters. Exiting..."$colorOff
     exit 1
 fi
 
@@ -83,11 +83,11 @@ fi
 
 # Update package information
 echo -e $cyan"\n Updating package information... \n"$colorOff
-apt-get update
+apt-get update -y
 
 # Upgrade installed packages
 echo -e $cyan "\n Upgrading packages... \n"$colorOff
-apt-get upgrade #-y ?
+apt-get upgrade -y
 
 
 #######################
