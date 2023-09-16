@@ -44,6 +44,12 @@ scriptExec() {
 ## SOME CHECKS TO PREVENT ERRORS  ##
 ####################################
 
+# Check if shell is Bourne Agains Shell (BASH)
+if [ -z "$BASH_VERSION" ]; then
+    echo -e $red" ERROR: This script is designed to be executed with Bash. Try running $yellow./script.sh$red or$yellow bash script.sh"$colorOff
+    exit 1
+fi
+
 # Check if userName exists
 echo -e "$cyan \n Checking if $yellow$userName$cyan user exists\n "$colorOff
 
@@ -52,12 +58,6 @@ if [ $(cat /etc/passwd | grep -c '^'$userName':') = 1 ]; then
 else   
     echo -e $red" ERROR: User does not exist... Exiting..."$colorOff
     exit 1
-fi
-
-# Check if shell is Bourne Agains Shell (BASH)
-if [ -z "$BASH_VERSION" ]; then
-echo -e $red" ERROR: This script is designed to be executed with Bash. Try running $yellow./script.sh$red or$yellow bash script.sh"$colorOff
-exit 1
 fi
 
 # Check distro and exit if is not Debian

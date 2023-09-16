@@ -8,11 +8,11 @@
     echo -e $cyan"\n Adding sudo privileges to $userName \n"$colorOff
 
     # Check if user is in /etc/sudoers
-    if ! grep -q $userName /etc/sudoers; then
+    if ! grep -q ^$userName /etc/sudoers; then
         # Si no se encuentra el usuario en /etc/sudoers comprueba si existe el fichero sudoers en /etc/sudoers.d/
         if [ -f $sudoersFile ]; then
             # Si el fichero existe, comprueba si existe el usuario
-            if ! grep -q $userName $sudoersFile; then
+            if ! grep -q ^$userName $sudoersFile; then
                 # Si el fichero existe, pero no el usuario, añade las líneas de código necesarias
                 echo '# Users with sudo privileges' >> $sudoersFile
                 echo -e "$userName  ALL=(ALL:ALL) ALL" >> $sudoersFile
