@@ -44,7 +44,16 @@ scriptExec() {
         #If not exists show an error
         echo -e $red" ERROR: $scriptPath not found"$colorOff
     fi
+}
 
+install_pkg() {
+    local $do_it=$1
+    local $pkg=$2
+    if ( $do_it = true ) ; then
+        scriptExec $pkg
+    else
+        echo -e “Package $pkg installation disabled”
+    fi
 }
 
 ####################################
@@ -102,14 +111,16 @@ apt-get upgrade -y
 #######################
 
 # Check bash_completion_install parameter
-if [ $bash_completion_install = true ]; then
+
+#if [ $bash_completion_install = true ]; then
     
-    scriptExec bash-completion
+#    scriptExec bash-completion
 
-else
-    echo -e $cyan"\n bash_completion_install DISABLED in config"$colorOff
-fi
+#else
+#    echo -e $cyan"\n bash_completion_install DISABLED in config"$colorOff
+#fi
 
+install_pkg "$bash_completion_install" "bash-completion"
 
 ############
 ##  SUDO  ##
