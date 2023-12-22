@@ -1,6 +1,6 @@
 #!/bin/bash
 
-    apt-get install sudo
+    apt-get install sudo -y
 
     # Define sudoers file
     sudoersFile='/etc/sudoers.d/sudoers'

@@ -1,0 +1,29 @@
+# Config file for openssh-server
+
+
+# CONNECTION:
+
+#Port 22
+#AddressFamily any
+#ListenAddress 0.0.0.0
+#Protocol 2
+
+
+# AUTHENTICATION:
+
+#LoginGraceTime 1m
+#MaxAuthTries 3
+#MaxSessions 5
+#PasswordAuthentication no
+#PermitRootLogin no
+
+
+# LOGGING:
+
+#LogLevel Info
+#PrintLastLog yes
+
+
+# OTHERS:
+
+#Banner /etc/ssh/banner.txt
