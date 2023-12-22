@@ -130,7 +130,14 @@ install_pkg "$sudo_install" "sudo"
 
 install_pkg "$openssh_server_install" "openssh-server"
 
-install_pkg "$virtualbox_guest_additions" "vbox-guest-additions"
+# If virtualbox_host is true OR virtualbox_guest_additions is true then...
+if [ "$virtualbox_host" = true ] || [ "$virtualbox_guest_additions" = true ]; then
+    # 
+    install_pkg true "virtualbox"
+else
+    echo -e $cyan"\n virtualbox_host and virtualbox_guest_additions are disabled in config"$colorOff
+fi 
+
 
 ################################################
 ## INSTALL UTILITIES WITHOUT ANY EXTRA CONFIG ##
