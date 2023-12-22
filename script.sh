@@ -28,31 +28,32 @@ yellow='\033[0;33m'
 red='\033[1;31m'
 colorOff='\033[0m'
 
+# Function to execute scripts
 scriptExec() {
-    #Define variables
-    scriptName="$1" #$1 is a variable taked when is called scriptExec (for example scriptExec sudo)
-    #Defines the path including the script name
+    # Define variables
+    scriptName="$1" # $1 is a variable taken when scriptExec is called (e.g., scriptExec sudo)
+    # Define the path including the script name
     scriptPath="$src_dir/$scriptName.sh"
 
     echo -e $cyan"\n Installing $scriptName...\n"$colorOff
 
-    #check if scriptPath exists
+    # check if scriptPath exists
     if [ -f $scriptPath ]; then
-        #if exists call the script
+        # If it exists, call the script
         source $scriptPath
     else
-        #If not exists show an error
+        # If not, show an error
         echo -e $red" ERROR: $scriptPath not found"$colorOff
     fi
 }
 
+# Function to install a package based on the specified conditions
 install_pkg() {
-    local do_it=$1
-    local pkg=$2
+    local do_it=$1 # Take the first argument and store it in the local variable do_it
+    local pkg=$2 # Take the second argument and store it in the local variable pkg
     if ( $do_it = true ) ; then
         scriptExec $pkg
     else
-    #    echo -e “Package $pkg installation disabled”
         echo -e $cyan"\n $pkg installation disabled in config"$colorOff
     fi
 }
@@ -107,49 +108,13 @@ echo -e $cyan "\n Upgrading packages... \n"$colorOff
 apt-get upgrade -y
 
 
-#######################
-##  BASH COMPLETION  ##
-#######################
-
-# Check bash_completion_install parameter
-
-#if [ $bash_completion_install = true ]; then
-    
-#    scriptExec bash-completion
-
-#else
-#    echo -e $cyan"\n bash_completion_install DISABLED in config"$colorOff
-#fi
+##############################################
+##  INSTALL AND SET UP CONFIGURED PACKAGES  ##
+##############################################
 
 install_pkg "$bash_completion_install" "bash-completion"
 
-############
-##  SUDO  ##
-############
-
-# Check sudo_install parameter
-#if [ $sudo_install = true ]; then
-
-#    scriptExec sudo
-
-#else
-#    echo -e $cyan"\n sudo_install disabled in config"$colorOff
-#fi
-
 install_pkg "$sudo_install" "sudo" 
-
-###############
-##  OPENSSH  ##
-###############
-
-# Check openssh_server_install parameter
-#if [ $openssh_server_install = true ]; then
-
-#    scriptExec openssh-server
-
-#else
-#    echo -e $cyan"\n openssh-server_install disabled in config"$colorOff
-#fi
 
 install_pkg "$openssh_server_install" "openssh-server"
 
