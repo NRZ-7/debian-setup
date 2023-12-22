@@ -47,13 +47,13 @@ scriptExec() {
 }
 
 install_pkg() {
-    local $do_it=$1
-    local $pkg=$2
+    local do_it=$1
+    local pkg=$2
     if ( $do_it = true ) ; then
         scriptExec $pkg
     else
         echo -e “Package $pkg installation disabled”
-    fi
+    fi
 }
 
 ####################################
