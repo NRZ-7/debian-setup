@@ -4,19 +4,16 @@
 ##  PARAMETERS  ##
 ##################
 
-
-sudo_install=false              # Install and configure sudo for your Debian user name
-userName=changeMe                    # Needs to match with your Debian user name.
-
-bash_completion_install=false   # Install and configure bash-completion for root user
-
-openssh_server_install=false    # Install and configure openssh-server
-disable_ssh_users=false         # Disable ssh login for all users EXCEPT $userName
+userName=changeMe                   # Needs to match with your Debian user name.
+sudo_install=false                  # Install and configure sudo for your Debian user name
+bash_completion_install=false       # Install and configure bash-completion for root user
+openssh_server_install=false        # Install and configure openssh-server
+disable_ssh_users=false             # Disable ssh login for all users EXCEPT $userName
+virtualbox_guest_additions=false    #Install and configure oficial fasttrack repositories and install virtualbox-guest-x11
 
 #apache2_install=false
 #vfptd_install=false
 #mariaDB_install=false
-#virtualbox_guest_additions=false
 
 #List of utilities to install without any extra config
 utilities_to_install="vim htop tree" 
@@ -129,11 +126,13 @@ install_pkg "$sudo_install" "sudo"
 
 install_pkg "$openssh_server_install" "openssh-server"
 
+install_pkg "$virtualbox_guest_additions" "vbox-guest-additions"
+
 ################################################
 ## INSTALL UTILITIES WITHOUT ANY EXTRA CONFIG ##
 ################################################
 
-apt install &utilities_to_install -y
+apt install $utilities_to_install -y
 
 # Clean unnecessary packages
 echo -e $cyan"\n Cleaning unnecessary packages... \n"$colorOff

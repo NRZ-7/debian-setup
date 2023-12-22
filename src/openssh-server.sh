@@ -1,7 +1,7 @@
 #!/bin/bash
 
     # Install ssh
-    apt-get install openssh-server
+    apt-get install openssh-server -y
 
     #Define sshd_config file path
     sshd_configFile="/etc/ssh/sshd_config.d/sshd_config"
