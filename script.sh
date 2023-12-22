@@ -9,6 +9,7 @@ sudo_install=false                  # Install and configure sudo for your Debian
 bash_completion_install=false       # Install and configure bash-completion for root user and $userName
 openssh_server_install=false        # Install and configure openssh-server
 disable_ssh_users=false             # Disable ssh login for all users EXCEPT $userName
+virtualbox_host=false               # Install and configure oficial Debian fasttrack repositories and install virtualbox for hosts.
 virtualbox_guest_additions=false    # Install and configure oficial Debian fasttrack repositories and install virtualbox-guest-x11
 
 #apache2_install=false
@@ -16,7 +17,7 @@ virtualbox_guest_additions=false    # Install and configure oficial Debian fastt
 #mariaDB_install=false
 
 #List of utilities to install without any extra config
-utilities_to_install="vim htop tree" 
+utilities_to_install="net-tools vim htop tree " 
 
 
                                         ##############
@@ -62,7 +63,7 @@ install_pkg() {
     if ( $do_it = true ) ; then
         scriptExec $pkg
     else
-        echo -e $cyan"\n $pkg installation disabled in config"$colorOff
+        echo -e $cyan"\n $pkg installation disabled in config \n"$colorOff
     fi
 }
 
