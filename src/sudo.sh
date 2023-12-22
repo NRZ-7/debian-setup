@@ -30,6 +30,6 @@
             echo -e $green" $userName added to $sudoersFile"$colorOff
         fi
     else
-        # Encuentra el usuario configurado en /etc/sudoers. Avisa de que és una mala práctica y sugiere configurarlo en el directorio sudoers.d
-        echo -e $red" WARNING: $userName is alredy present to /etc/sudoers. This works but is a bad practice and can broke your updates. Instead you can add your user to /etc/sudoers.d/ directory"$colorOff
+        # Encuentra el usuario configurado en /etc/sudoers. Avisa de que és una mala práctica y sugiere configurarlo en el directorio sudoers.d . Redirige el mensaje a STDERR
+        echo -e $red" WARNING: $userName is alredy present to /etc/sudoers. This works but is a bad practice and can broke your updates. Instead you can add your user to /etc/sudoers.d/ directory"$colorOff >&2
     fi

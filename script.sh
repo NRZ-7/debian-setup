@@ -50,8 +50,8 @@ scriptExec() {
         # If it exists, call the script
         source $scriptPath
     else
-        # If not, show an error
-        echo -e $red" ERROR: $scriptPath not found"$colorOff
+        # If not, show an error and redirect output to STDERR
+        echo -e $red" ERROR: $scriptPath not found"$colorOff >&2
     fi
 }
 
@@ -72,7 +72,8 @@ install_pkg() {
 
 # Check if shell is Bourne Agains Shell (BASH)
 if [ -z "$BASH_VERSION" ]; then
-    echo -e $red" ERROR: This script is designed to be executed with Bash. Try running $yellow./script.sh$red or$yellow bash script.sh"$colorOff
+    # If not, show an error and redirect output to STDERR
+    echo -e $red" ERROR: This script is designed to be executed with Bash. Try running $yellow./script.sh$red or$yellow bash script.sh"$colorOff >&2
     exit 1
 fi
 
@@ -82,7 +83,8 @@ echo -e "$cyan \n Checking if $yellow$userName$cyan user exists\n "$colorOff
 if [ $(cat /etc/passwd | grep -c '^'$userName':') = 1 ]; then
     echo -e $green" User exists... Nice!"$colorOff
 else   
-    echo -e $red" ERROR: User does not exist... Please edit script.sh file and check the firsts parameters. Exiting..."$colorOff
+    # If not, show an error and redirect output to STDERR
+    echo -e $red" ERROR: User does not exist... Please edit script.sh file and check the firsts parameters. Exiting..."$colorOff >&2
     exit 1
 fi
 
@@ -91,14 +93,15 @@ fi
 if [ $(lsb_release -is) = 'Debian' ]; then 
     echo -e $green" Your distro seems compatile with this script. The execution will continue..."$colorOff
 else
-    #If the OS isn't Debian, exit with error message.
-    echo -e $red" ERROR: Not supported OS. This script is only for Debian. Exiting..."$colorOff
+    #If the OS isn't Debian, show an error and redirect output to STDERR
+    echo -e $red" ERROR: Not supported OS. This script is only for Debian. Exiting..."$colorOff >&2
     exit 1
 fi
 
 # Check if the script is being executed as root
 if ! [ $(id -u) = 0 ]; then
-    echo -e $red" ERROR: This script must be executed as root. Exiting..."$colorOff
+    # If not, show an error and redirect output to STDERR
+    echo -e $red" ERROR: This script must be executed as root. Exiting..."$colorOff >&2
     exit 1
 fi
 
