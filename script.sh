@@ -6,10 +6,10 @@
 
 userName=changeMe                   # Needs to match with your Debian user name.
 sudo_install=false                  # Install and configure sudo for your Debian user name
-bash_completion_install=false       # Install and configure bash-completion for root user
+bash_completion_install=false       # Install and configure bash-completion for root user and $userName
 openssh_server_install=false        # Install and configure openssh-server
 disable_ssh_users=false             # Disable ssh login for all users EXCEPT $userName
-virtualbox_guest_additions=false    #Install and configure oficial fasttrack repositories and install virtualbox-guest-x11
+virtualbox_guest_additions=false    # Install and configure oficial Debian fasttrack repositories and install virtualbox-guest-x11
 
 #apache2_install=false
 #vfptd_install=false
