@@ -52,7 +52,8 @@ install_pkg() {
     if ( $do_it = true ) ; then
         scriptExec $pkg
     else
-        echo -e “Package $pkg installation disabled”
+    #    echo -e “Package $pkg installation disabled”
+        echo -e $cyan"\n $pkg installation disabled in config"$colorOff
     fi
 }
 
@@ -127,29 +128,30 @@ install_pkg "$bash_completion_install" "bash-completion"
 ############
 
 # Check sudo_install parameter
-if [ $sudo_install = true ]; then
+#if [ $sudo_install = true ]; then
 
-    scriptExec sudo
+#    scriptExec sudo
 
-else
-    echo -e $cyan"\n sudo_install disabled in config"$colorOff
-fi
+#else
+#    echo -e $cyan"\n sudo_install disabled in config"$colorOff
+#fi
 
+install_pkg "$sudo_install" "sudo" 
 
 ###############
 ##  OPENSSH  ##
 ###############
 
 # Check openssh_server_install parameter
-if [ $openssh_server_install = true ]; then
+#if [ $openssh_server_install = true ]; then
 
-    scriptExec openssh-server
+#    scriptExec openssh-server
 
-else
-    echo -e $cyan"\n openssh-server_install disabled in config"$colorOff
-fi
+#else
+#    echo -e $cyan"\n openssh-server_install disabled in config"$colorOff
+#fi
 
-
+install_pkg "$openssh_server_install" "openssh-server"
 
 # Clean unnecessary packages
 echo -e $cyan"\n Cleaning unnecessary packages... \n"$colorOff
