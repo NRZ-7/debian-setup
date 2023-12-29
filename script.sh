@@ -15,6 +15,8 @@ virtualbox_guest_additions=false    # Install and configure oficial Debian fastt
 #apache2_install=false
 #vfptd_install=false
 #mariaDB_install=false
+#custom_bashrc_promt=false
+#xfce_custom_config=false
 
 #List of utilities to install without any extra config
 utilities_to_install="net-tools vim htop tree " 
