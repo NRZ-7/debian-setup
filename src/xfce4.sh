@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #Stop xfce4-panel using $userName user
 #sudo -u $userName xfce4-panel --quit
 

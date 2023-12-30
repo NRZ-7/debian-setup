@@ -155,8 +155,13 @@ apt-get autoremove -y
 
 
 if [ "$reboot_system" == true ]; then
-    echo "Rebooting system now"
+    echo -e $green" Reboot is needed."$colorOff
+    echo ""
+    echo -e $yellow" Press ENTER to Reboot"$colorOff
+    read -p ""
+    echo -e $yellow" Rebooting system now"$colorOff
     sleep 3
     systemctl reboot
 else
+    echo -e $green" No Reboot is needed"$colorOff
 fi
