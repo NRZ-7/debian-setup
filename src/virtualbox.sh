@@ -20,7 +20,7 @@ echo "deb http://fasttrack.debian.net/debian-fasttrack/ $(lsb_release -cs)-fastt
 apt update
 
 # Check virtualbox_guest_additions parameter
-if [ $virtualbox_guest_additions = true ]; then
+if [ $virtualbox_guest_additions == true ]; then
     # Install the VirtualBox Guest Additions for X11
     apt install virtualbox-guest-x11 -y
     echo -e $green"\n Virtualbox Guest Additions for X11 is installed"$colorOff
@@ -29,7 +29,7 @@ else
 fi
 
 # Check virtualbox_host parameter
-if [ $virtualbox_host = true ]; then
+if [ $virtualbox_host == true ]; then
     # Install the Virtualbox Host
     apt install virtualbox -y
     echo -e $green"\n Virtualbox Host is installed"$colorOff

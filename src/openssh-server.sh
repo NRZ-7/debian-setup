@@ -12,7 +12,7 @@
 
 
     #Disable ssh login for all users EXCEPT $userName
-    if [ $disable_ssh_users = true ]; then
+    if [ $disable_ssh_users == true ]; then
 
         echo "" >> $sshd_configFile
         echo "# Allow only users from this list" >> $sshd_configFile
