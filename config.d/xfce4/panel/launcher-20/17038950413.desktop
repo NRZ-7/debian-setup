@@ -17,7 +17,7 @@ MimeType=inode/directory;
 Actions=open-home;open-computer;open-trash;
 X-XFCE-Source=file:///usr/share/applications/thunar.desktop
 
-Path=
+Path=~
 
 [Desktop Action open-home]
 Name=Home

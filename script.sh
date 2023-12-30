@@ -16,7 +16,7 @@ virtualbox_guest_additions=false    # Install and configure oficial Debian fastt
 #vfptd_install=false
 #mariaDB_install=false
 #custom_bashrc_promt=false
-#xfce_custom_config=false
+xfce4_custom_config=false
 
 #List of utilities to install without any extra config
 utilities_to_install="net-tools vim htop tree " 
@@ -131,6 +131,8 @@ install_pkg "$bash_completion_install" "bash-completion"
 install_pkg "$sudo_install" "sudo" 
 
 install_pkg "$openssh_server_install" "openssh-server"
+
+install_pkg "$xfce4_custom_config" "xfce4"
 
 # If virtualbox_host is true OR virtualbox_guest_additions is true then...
 if [ "$virtualbox_host" = true ] || [ "$virtualbox_guest_additions" = true ]; then
