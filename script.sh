@@ -62,7 +62,7 @@ scriptExec() {
 install_pkg() {
     local do_it=$1 # Take the first argument and store it in the local variable do_it
     local pkg=$2 # Take the second argument and store it in the local variable pkg
-    if ( $do_it = true ) ; then
+    if [ $do_it == true ] ; then
         scriptExec $pkg
     else
         echo -e $cyan"\n $pkg installation disabled in config \n"$colorOff
@@ -135,7 +135,7 @@ install_pkg "$openssh_server_install" "openssh-server"
 install_pkg "$xfce4_custom_config" "xfce4"
 
 # If virtualbox_host is true OR virtualbox_guest_additions is true then...
-if [ "$virtualbox_host" = true ] || [ "$virtualbox_guest_additions" = true ]; then
+if [ "$virtualbox_host" == true ] || [ "$virtualbox_guest_additions" == true ]; then
     # 
     install_pkg true "virtualbox"
 else
@@ -152,3 +152,11 @@ apt install $utilities_to_install -y
 # Clean unnecessary packages
 echo -e $cyan"\n Cleaning unnecessary packages... \n"$colorOff
 apt-get autoremove -y
+
+
+if [ "$reboot_system" == true ]; then
+    echo "Rebooting system now"
+    sleep 3
+    systemctl reboot
+else
+fi
