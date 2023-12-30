@@ -23,6 +23,7 @@ apt update
 if [ $virtualbox_guest_additions == true ]; then
     # Install the VirtualBox Guest Additions for X11
     apt install virtualbox-guest-x11 -y
+    reboot_system=true
     echo -e $green"\n Virtualbox Guest Additions for X11 is installed"$colorOff
 else
     echo -e $cyan"\n virtualbox_guest_additions disabled in config"$colorOff
