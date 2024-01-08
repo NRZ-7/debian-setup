@@ -1,7 +1,7 @@
 #!/bin/bash
 
     # Install ssh
-    apt-get install openssh-server
+    apt-get install -y openssh-server
 
     #Define sshd_config file path
     sshd_configFile="/etc/ssh/sshd_config.d/sshd_config"
@@ -12,7 +12,7 @@
 
 
     #Disable ssh login for all users EXCEPT $userName
-    if [ $disable_ssh_users = true ]; then
+    if [ $disable_ssh_users == true ]; then
 
         echo "" >> $sshd_configFile
         echo "# Allow only users from this list" >> $sshd_configFile

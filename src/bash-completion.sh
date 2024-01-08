@@ -1,7 +1,7 @@
 #!/bin/bash
 
     # Config bash-compleiton for root user
-    apt-get install bash-completion -y
+    apt-get install -y bash-completion
 
     echo -e $cyan"\n Add bash-completion in /root/.bashrc \n"$colorOff
 
