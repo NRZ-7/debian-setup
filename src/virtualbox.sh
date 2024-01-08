@@ -12,17 +12,17 @@ echo -e $cyan"\n Installing Virtualbox and repositories \n"$colorOff
 # apt install lsb-release -y
 
 # Install the fasttrack-archive-keyring package
-apt install fasttrack-archive-keyring -y
+apt-get install -y fasttrack-archive-keyring 
 # Add the fasttrack repository to the sources.list.d directory
 echo "deb http://fasttrack.debian.net/debian-fasttrack/ $(lsb_release -cs)-fasttrack main contrib" | tee /etc/apt/sources.list.d/fasttrack.list
 
 # Update the package list to include the fasttrack repository
-apt update
+apt-get update
 
 # Check virtualbox_guest_additions parameter
 if [ $virtualbox_guest_additions == true ]; then
     # Install the VirtualBox Guest Additions for X11
-    apt install virtualbox-guest-x11 -y
+    apt-get install -y virtualbox-guest-x11
     reboot_system=true
     echo -e $green"\n Virtualbox Guest Additions for X11 is installed"$colorOff
 else
@@ -32,7 +32,7 @@ fi
 # Check virtualbox_host parameter
 if [ $virtualbox_host == true ]; then
     # Install the Virtualbox Host
-    apt install virtualbox -y
+    apt-get install -y virtualbox
     echo -e $green"\n Virtualbox Host is installed"$colorOff
 
 else

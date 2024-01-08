@@ -11,7 +11,7 @@ openssh_server_install=false        # Install and configure openssh-server
 disable_ssh_users=false             # Disable ssh login for all users EXCEPT $userName
 virtualbox_host=false               # Install and configure oficial Debian fasttrack repositories and install virtualbox for hosts.
 virtualbox_guest_additions=false    # Install and configure oficial Debian fasttrack repositories and install virtualbox-guest-x11
-xfce4_custom_config=false           # Configure xfce4 with your custom preloaded files in /config.d/xfce4
+xfce4_custom_config=false           # Install and Configure xfce4 with your custom preloaded files in /config.d/xfce4 (NOTE: You can also install Debian with the XFCE environment directly, and this script will load your custom files)
 
 #apache2_install=false
 #vfptd_install=false
@@ -148,7 +148,7 @@ fi
 ## INSTALL UTILITIES WITHOUT ANY EXTRA CONFIG ##
 ################################################
 
-apt install $utilities_to_install -y
+apt-get install -y $utilities_to_install 
 
 # Clean unnecessary packages
 echo -e $cyan"\n Cleaning unnecessary packages... \n"$colorOff
