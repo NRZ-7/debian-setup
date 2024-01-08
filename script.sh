@@ -160,9 +160,13 @@ if [ "$reboot_system" == true ]; then
     echo -e $green" Reboot is needed."$colorOff
     echo ""
     echo -e $yellow" Press ENTER to Reboot"$colorOff
-    read -p ""
-    echo -e $yellow" Rebooting system now"$colorOff
-    sleep 3
+    read ""
+    echo -e $yellow" Rebooting system in 3..."$colorOff
+    sleep 1
+    echo -e $yellow" ...2..."$colorOff
+    sleep 1
+    echo -e $yellow" ...1..."$colorOff
+    sleep 1
     systemctl reboot
 else
     echo -e $green" No Reboot is needed"$colorOff
