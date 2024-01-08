@@ -11,15 +11,16 @@ openssh_server_install=false        # Install and configure openssh-server
 disable_ssh_users=false             # Disable ssh login for all users EXCEPT $userName
 virtualbox_host=false               # Install and configure oficial Debian fasttrack repositories and install virtualbox for hosts.
 virtualbox_guest_additions=false    # Install and configure oficial Debian fasttrack repositories and install virtualbox-guest-x11
+xfce4_custom_config=false           # Configure xfce4 with your custom preloaded files in /config.d/xfce4
 
 #apache2_install=false
 #vfptd_install=false
 #mariaDB_install=false
 #custom_bashrc_promt=false
-xfce4_custom_config=false
+
 
 #List of utilities to install without any extra config
-utilities_to_install="net-tools vim htop tree " 
+utilities_to_install="net-tools vim htop tree" 
 
 
                                         ##############
