@@ -2,7 +2,7 @@
 
 #Stop xfce4-panel using $userName user
 #sudo -u $userName xfce4-panel --quit
-sudo -u $userName -SIGTERM -f xfce4-panel
+sudo -u $userName pkill -SIGTERM -f xfce4-panel
 #Remove current configuration files
 rm -r /home/$userName/.config/xfce4
 sleep 0.2
