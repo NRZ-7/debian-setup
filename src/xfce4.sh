@@ -14,6 +14,8 @@ mkdir -p /home/$userName/.config && cp -r $current_dir/config.d/xfce4 /home/$use
 #Setting permissions from root to $userName
 chown -R $userName:$userName /home/$userName/.config/xfce4
 
+echo -e $green"\n XFCE is installed and configured"$colorOff
+
 #Start xfce4-panel on $userName session
 #sudo -u $userName xfce4-panel
 

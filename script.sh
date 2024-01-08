@@ -156,6 +156,7 @@ apt-get autoremove -y
 
 
 if [ "$reboot_system" == true ]; then
+    echo ""
     echo -e $green" Reboot is needed."$colorOff
     echo ""
     echo -e $yellow" Press ENTER to Reboot"$colorOff
