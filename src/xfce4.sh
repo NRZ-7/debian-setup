@@ -9,7 +9,7 @@ sudo -u $userName pkill -SIGTERM -f xfce4-panel
 rm -r /home/$userName/.config/xfce4
 #sleep 0.2
 #Copy custom config to xfce4 username config path
-cp -r $current_dir/config.d/xfce4 /home/$userName/.config/xfce4
+mkdir -p /home/$userName/.config && cp -r $current_dir/config.d/xfce4 /home/$userName/.config/xfce4
 #sleep 0.5
 #Setting permissions from root to $userName
 chown -R $userName:$userName /home/$userName/.config/xfce4
