@@ -12,6 +12,7 @@ disable_ssh_users=false             # Disable ssh login for all users EXCEPT $us
 virtualbox_host=false               # Install and configure oficial Debian fasttrack repositories and install virtualbox for hosts.
 virtualbox_guest_additions=false    # Install and configure oficial Debian fasttrack repositories and install virtualbox-guest-x11
 xfce4_custom_config=false           # Install and Configure xfce4 with your custom preloaded files in /config.d/xfce4 (NOTE: You can also install Debian with the XFCE environment directly, and this script will load your custom files)
+vscodium_install=false              # Install VSCodium repository and install Visual Studio Codium
 
 #apache2_install=false
 #vfptd_install=false
@@ -132,6 +133,8 @@ install_pkg "$bash_completion_install" "bash-completion"
 install_pkg "$sudo_install" "sudo" 
 
 install_pkg "$openssh_server_install" "openssh-server"
+
+install_pkg "$vscodium_install" "vscodium"
 
 install_pkg "$xfce4_custom_config" "xfce4"
 
